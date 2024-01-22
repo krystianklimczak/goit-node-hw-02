@@ -3,7 +3,7 @@ import { getAllContacts } from '#service/index.js';
 async function indexContacts(req, res, next) {
   try {
     const results = await getAllContacts();
-    res.json({
+    return res.json({
       status: 'succes',
       code: 200,
       data: {

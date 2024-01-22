@@ -6,7 +6,7 @@ async function createContacts(req, res, next) {
     const existingContact = await getContactByName(name);
 
     if (existingContact) {
-      res.status(400).json({
+      return res.status(400).json({
         status: 'failed',
         code: 400,
         data: 'Not found',
@@ -14,7 +14,7 @@ async function createContacts(req, res, next) {
       });
     } else {
       const result = await createContact({ name, email, phone, favorite });
-      res.status(201).json({
+      return res.status(201).json({
         status: 'success',
         code: 201,
         data: { contact: result },

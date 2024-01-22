@@ -5,7 +5,7 @@ async function showContacts(req, res, next) {
   try {
     const result = await getContactById(contactId);
     if (result) {
-      res.json({
+      return res.json({
         status: 'success',
         code: 200,
         data: { contact: result },

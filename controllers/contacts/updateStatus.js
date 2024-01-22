@@ -6,13 +6,13 @@ async function updateStatus(req, res, next) {
   try {
     const result = await updateContact(contactId, { favorite });
     if (result) {
-      res.json({
+      return res.json({
         status: 'success',
         code: 200,
         data: { contact: result },
       });
     } else {
-      res.status(404).json({
+      return res.status(404).json({
         status: 'error',
         code: 404,
         message: `Not found contact id: ${contactId}`,
