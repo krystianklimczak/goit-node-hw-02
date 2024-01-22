@@ -1,4 +1,4 @@
-import { getAllContacts } from '../../service/index.js';
+import { getAllContacts } from '#service/index.js';
 
 async function indexContacts(req, res, next) {
   try {

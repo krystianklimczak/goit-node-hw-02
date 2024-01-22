@@ -1,4 +1,4 @@
-import { createContact, getContactByName } from '../../service/index.js';
+import { createContact, getContactByName } from '#service/index.js';
 
 async function createContacts(req, res, next) {
   const { name, email, phone, favorite } = req.body;

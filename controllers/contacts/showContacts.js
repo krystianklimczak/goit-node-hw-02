@@ -1,4 +1,4 @@
-import { getContactById } from '../../service/index.js';
+import { getContactById } from '#service/index.js';
 
 async function showContacts(req, res, next) {
   const { contactId } = req.params;

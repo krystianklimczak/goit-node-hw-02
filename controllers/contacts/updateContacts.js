@@ -1,4 +1,4 @@
-import { updateContact } from '../../service/index.js';
+import { updateContact } from '#service/index.js';
 
 async function updateContacts(req, res, next) {
   const { contactId } = req.params;
