@@ -1,21 +1,21 @@
-import { removeContact } from '#service/index.js';
+import { updateContact } from '#service/index.js';
 
-async function deleteContacts(req, res, next) {
+async function updateStatus(req, res, next) {
   const { contactId } = req.params;
+  const { favorite = false } = req.body;
   try {
-    const result = await removeContact(contactId);
+    const result = await updateContact(contactId, { favorite });
     if (result) {
       return res.json({
         status: 'success',
         code: 200,
-        data: { conact: result },
-        message: `Contact with id: '${contactId}' removed`,
+        data: { contact: result },
       });
     } else {
       return res.status(404).json({
         status: 'error',
         code: 404,
-        message: `Not found contact id: '${contactId}'`,
+        message: `Not found contact id: ${contactId}`,
         data: 'Not found',
       });
     }
@@ -25,4 +25,4 @@ async function deleteContacts(req, res, next) {
   }
 }
 
-export { deleteContacts };
+export { updateStatus };
