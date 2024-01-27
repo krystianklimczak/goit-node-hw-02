@@ -36,6 +36,7 @@
   "imports": {
     "#controllers/*": "./controllers/*",
     "#routes/*": "./routes/*",
-    "#service/*": "./service/*"
+    "#service/*": "./service/*",
+    "#middlewares/*": "./middlewares/*"
   }
 }

@@ -1,4 +1,4 @@
-import { createUser, getUserByEmail } from '../../service/index.js';
+import { createUser, getUserByEmail } from '#service/index.js';
 
 async function signUp(req, res, next) {
   const { email, password } = req.body;
