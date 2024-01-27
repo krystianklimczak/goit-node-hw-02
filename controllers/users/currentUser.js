@@ -1,4 +1,4 @@
-import { getUserById } from '../../service/index.js';
+import { getUserById } from '#service/index.js';
 
 async function currentUser(req, res, next) {
   if (res.user.length === 0) {
