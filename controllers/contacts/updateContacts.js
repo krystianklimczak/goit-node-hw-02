@@ -1,10 +1,13 @@
 import { updateContact } from '#service/index.js';
 
 async function updateContacts(req, res, next) {
+  const [user] = res.user;
   const { contactId } = req.params;
   const fields = req.body;
+
   try {
-    const result = await updateContact(contactId, fields);
+    const result = await updateContact(contactId, fields, user._id);
+
     if (result) {
       return res.json({
         status: 'success',
