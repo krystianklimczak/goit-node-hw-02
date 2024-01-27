@@ -1,4 +1,4 @@
-import { updateUser } from '../../service/index.js';
+import { updateUser } from '#service/index.js';
 
 async function logOut(req, res, next) {
   if (res.user.length === 0) {

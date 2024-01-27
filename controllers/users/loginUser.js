@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { getUserByEmail, updateUser } from '../../service/index.js';
+import { getUserByEmail, updateUser } from '#service/index.js';
 
 async function logIn(req, res, next) {
   const { email, password } = req.body;
