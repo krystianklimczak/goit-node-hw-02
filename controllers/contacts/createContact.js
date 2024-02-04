@@ -1,9 +1,12 @@
 import { createContact, getContactByName } from '#service/index.js';
 
 async function createContacts(req, res, next) {
+  const [user] = res.user;
+  const owner = user._id;
   const { name, email, phone, favorite } = req.body;
+
   try {
-    const existingContact = await getContactByName(name);
+    const existingContact = await getContactByName(name, owner);
 
     if (existingContact) {
       return res.status(400).json({
@@ -13,7 +16,7 @@ async function createContacts(req, res, next) {
         message: `Contact with name: '${name}' already exsist`,
       });
     } else {
-      const result = await createContact({ name, email, phone, favorite });
+      const result = await createContact({ name, email, phone, favorite, owner });
       return res.status(201).json({
         status: 'success',
         code: 201,
