@@ -1,3 +1,4 @@
+import getAvatar from '../handlers/getAvatar.js';
 import { Contact } from './schemas/contact.js';
 import { User } from './schemas/users.js';
 
@@ -34,7 +35,7 @@ const getUserById = async id => {
 };
 
 const createUser = async ({ email, password }) => {
-  const newUser = new User({ email });
+  const newUser = new User({ email, avatarURL: getAvatar(email) });
   await newUser.setPassword(password);
   await newUser.save();
   return newUser;
