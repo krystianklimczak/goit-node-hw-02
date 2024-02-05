@@ -3,7 +3,6 @@ import path from 'path';
 import Jimp from 'jimp';
 import fs from 'fs/promises';
 import { storage, storeImage } from '../multerConfig/multerConfig.js';
-import { updateUser } from '../service/index.js';
 
 const extensionWhiteList = ['.jpg', '.jpge', '.png', '.gif'];
 const mimetypeWhiteList = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];

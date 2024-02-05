@@ -3,11 +3,11 @@ import logger from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import { router as contactsRouter } from './routes/api/contacts.js';
-
 import usersRouter from './routes/api/users.js';
 import setJWTStrategy from './config/jwt.js';
 import authMiddleware from './middlewares/jwt.js';
+
+import { router as contactsRouter } from './routes/api/contacts.js';
 
 dotenv.config();
 

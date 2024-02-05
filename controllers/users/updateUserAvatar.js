@@ -1,10 +1,11 @@
 import path from 'path';
 import fs from 'fs/promises';
+import { uuid } from 'uuidv4';
+
 import { getUserById } from '#service/index.js';
+import { updateUser } from '../../service/index.js';
 import { uploadDir } from '../../multerConfig/multerConfig.js';
 import { checkImageAndTransform } from '../../middlewares/uploadMiddleware.js';
-import { uuid } from 'uuidv4';
-import { updateUser } from '../../service/index.js';
 
 async function updateUserAvatar(req, res, next) {
   if (res.user.length === 0) {
@@ -22,12 +23,10 @@ async function updateUserAvatar(req, res, next) {
   const extension = path.extname(temporaryPath);
   const fileName = `${uuid()}_${user.email}${extension}`;
   const filePath = path.join(uploadDir, fileName);
-  console.log(id);
 
   try {
     await fs.rename(temporaryPath, filePath);
   } catch (e) {
-    console.log(e);
     await fs.unlink(temporaryPath);
     return next(e);
   }

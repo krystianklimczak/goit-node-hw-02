@@ -1,7 +1,7 @@
-import { app } from './app.js';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
+import { app } from './app.js';
 import { createFolderIsNotExist } from './handlers/checkFolders.js';
 import { storeImage, uploadDir } from './multerConfig/multerConfig.js';
 
