@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { Schema } from 'mongoose';
+import getAvatar from '../../handlers/getAvatar.js';
 
 const contacts = new Schema(
   {
@@ -20,7 +21,7 @@ const contacts = new Schema(
     owner: {
       type: Schema.Types.ObjectId,
       ref: 'user',
-    },
+    }
   },
   { versionKey: false, timestamps: true }
 );

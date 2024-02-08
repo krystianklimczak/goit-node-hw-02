@@ -1,6 +1,9 @@
-import { app } from './app.js';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+
+import { app } from './app.js';
+import { createFolderIsNotExist } from './handlers/checkFolders.js';
+import { storeImage, uploadDir } from './multerConfig/multerConfig.js';
 
 dotenv.config();
 
@@ -13,6 +16,8 @@ connection
   .then(() => {
     console.log('Database connection successful');
     app.listen(PORT, function () {
+      createFolderIsNotExist(uploadDir);
+      createFolderIsNotExist(storeImage);
       console.log('Server running. Use our API on port: 3000');
     });
   })
